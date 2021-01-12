@@ -3,7 +3,10 @@ let express = require ("express");
 let path = require ("path");
 
 let app = express();
-app.use(express.static("styles"))
+
+//Middleware
+app.use(express.static("public"));
+app.use(express.urlencoded({extended: false}));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname,"form.html"));
@@ -13,12 +16,22 @@ app.get("/info", (req, res) => {
     res.sendFile(path.join(__dirname,"home.html"));
 });
 
-app.get("/info", (req, res) => {
+app.get("/contacto", (req, res) => {
     res.sendFile(path.join(__dirname,"contact.html"));
 });
 
-app.use((req, res) => {
-    res.sendFile(path.join(__dirname,"404.html"));
+app.post("/usuarios", (req, res) => {
+    console.log(req.body);
+    fs.appendFile("users.json", req.body, (error) => {
+        if(error) {
+            console.log(error)
+        }
+        res.redirect("/info")
+    })
 })
+
+app.use((req, res)=>{
+    res.sendFile(path.join(__dirname, "404.html"));
+});
 
 app.listen(9000);
