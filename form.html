@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" /> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/public/favicon.ico">
+    <link rel="stylesheet" href="/public/styles.css" />
     <title>GODZIMONA | LogIn</title>
-</head>
-<body>
-    <h1 style="font-family: 'Cabin Sketch', cursive;">¡Comparteme tus datos estimado Godzifan!</h1>
-    <form action="/addUser" method="POST">
-        <input name="Nombre" type="text" placeholder="Nombre">
-        <input name="Apellido" type="text" placeholder="Apellido">
-        <input name="Email" type="email" placeholder="E-mail">
-        <input name="Contraseña" type="password" placeholder="Contraseña">
-        <input type="submit" value="Enviar">
-    </form>
-</body>
+  </head>
+  <body>
+    <div class="form">
+      <h1 style="font-family: 'Cabin Sketch', cursive">
+        ¡Comparteme tus datos estimado Godzifan!
+      </h1>
+      <form action="/addUser" method="POST">
+        <input class="inputB" name="Nombre" type="text" placeholder="Nombre" required/>
+        <input class="inputB" name="Apellido" type="text" placeholder="Apellido" required/>
+        <input class="inputB" name="Email" type="email" placeholder="E-mail" required/>
+        <input class="inputB" name="Contraseña" type="password" placeholder="Contraseña" required/>
+        <input class="enter" type="submit" value="Enviar" />
+      </form>
+      <img src='https://i.postimg.cc/LXr7z7dy/godzi.png' alt='godzi'/>
+    </div>
+  </body>
 </html>

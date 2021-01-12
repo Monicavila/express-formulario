@@ -5,14 +5,14 @@ let path = require ("path");
 let app = express();
 
 //Middleware
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 app.use(express.urlencoded({extended: false}));
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname,"form.html"));
 });
 
-app.get("/info", (req, res) => {
+app.get("/inicio", (req, res) => {
     res.sendFile(path.join(__dirname,"home.html"));
 });
 
@@ -21,12 +21,11 @@ app.get("/contacto", (req, res) => {
 });
 
 app.post("/addUser", (req, res) => {
-    console.log(req.body);
     fs.appendFile("users.json", JSON.stringify(req.body), (error) => {
         if(error) {
             console.log(error)
         }
-        res.redirect("/info")
+        res.redirect("/inicio")
     })
 })
 
