@@ -20,9 +20,9 @@ app.get("/contacto", (req, res) => {
     res.sendFile(path.join(__dirname,"contact.html"));
 });
 
-app.post("/usuarios", (req, res) => {
+app.post("/addUser", (req, res) => {
     console.log(req.body);
-    fs.appendFile("users.json", req.body, (error) => {
+    fs.appendFile("users.json", JSON.stringify(req.body), (error) => {
         if(error) {
             console.log(error)
         }
